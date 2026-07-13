@@ -211,6 +211,21 @@ const CARDS = [
   { tag: "神回覆", lines: [{ who: "Emmy.W", text: "妳是第二個批評我貼圖的人。" }] },
   { tag: "神回覆", lines: [{ who: "麗寶", text: "900 塊是他的發財金是不是？" }] },
 
+  // ===== 新增一批 =====
+  { tag: "中文系相愛相殺", lines: [{ who: "Emmy", text: "語言邏輯擔當——麗寶。" }] },
+  { tag: "顯化魔法", lines: [{ who: "Emmy", text: "謝謝妳讓我覺得我是個正常人。" }] },
+  { tag: "職場毒雞湯", lines: [{ who: "麗寶", text: "我根本沒資格說不能（工作）。" }] },
+  {
+    tag: "職場毒雞湯",
+    lines: [
+      { who: "Emmy", text: "我正在取代陳O齡的路上。" },
+      { who: "麗寶", text: "聽起來非常不祥。" },
+    ],
+  },
+  { tag: "家人語錄", lines: [{ who: "Julie", text: "生死看淡，不服就幹。" }] },
+  { tag: "職場毒雞湯", lines: [{ who: "麗寶", text: "離職倒數必須以兩倍速進行，我一天帶走一樣桌面上的東西。" }] },
+  { tag: "神回覆", lines: [{ who: "Emmy.W", text: "妳的人生不是 silence，妳不是在學手語了。" }] },
+
   // ===== 家人語錄 =====
   { tag: "家人語錄", lines: [{ who: "麗寶", text: "我媽（茱莉）：『交換學生都不用讀書喔？』" }] },
   { tag: "家人語錄", lines: [{ who: "Emmy.W", text: "安迪對監視器沒有任何意外的反應……他說阿姨沒有格局。" }] },
@@ -253,7 +268,7 @@ export default function FriendCards() {
         .fc-scene { perspective: 1400px; }
         .fc-card {
           position: relative;
-          width: 300px;
+          width: clamp(240px, 82vw, 300px);
           min-height: 380px;
           transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
           transform-style: preserve-3d;
@@ -337,8 +352,9 @@ export default function FriendCards() {
 
 const styles = {
   page: {
-    minHeight: "560px",
+    minHeight: "100vh",
     width: "100%",
+    boxSizing: "border-box",
     background: "#ECE7DE",
     color: "#2A2620",
     display: "flex",
@@ -348,6 +364,7 @@ const styles = {
     padding: "48px 20px",
     fontFamily: "'Noto Sans TC', sans-serif",
     gap: "28px",
+    overflowX: "hidden",
   },
   header: { textAlign: "center" },
   eyebrow: {
